@@ -1,0 +1,13 @@
+runtime: python39
+
+handlers:
+  - url: /assets
+    static_dir: dist/assets
+
+  - url: /(.*\.(js|css|ico|png|jpg|svg))$
+    static_files: dist/\1
+    upload: dist/.*\.(js|css|ico|png|jpg|svg)$
+
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
