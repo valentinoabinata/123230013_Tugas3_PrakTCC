@@ -3,13 +3,11 @@ steps:
   - name: 'node:20'
     entrypoint: 'npm'
     args: ['install']
-    dir: 'frontend'
 
   # 2. Build project React/Vite
   - name: 'node:20'
     entrypoint: 'npm'
     args: ['run', 'build']
-    dir: 'frontend'
     env:
       # Mengambil URL Backend dari variabel trigger
       - 'VITE_API_URL=$_VITE_API_URL'
@@ -20,8 +18,7 @@ steps:
     args:
       - '-c'
       - 'gcloud app deploy app.yaml --project=$PROJECT_ID --quiet'
-    dir: 'frontend'
 
-# Tambahkan bagian ini untuk mengatasi error log
+# Mengatasi error log bucket
 options:
   logging: CLOUD_LOGGING_ONLY
