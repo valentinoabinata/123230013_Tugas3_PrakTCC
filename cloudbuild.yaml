@@ -21,3 +21,7 @@ steps:
       - '-c'
       - 'gcloud app deploy app.yaml --project=$PROJECT_ID --quiet'
     dir: 'frontend'
+
+# Tambahkan bagian ini untuk mengatasi error log
+options:
+  logging: CLOUD_LOGGING_ONLY
